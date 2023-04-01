@@ -58,6 +58,8 @@ jobs:
         cd openwrt
         echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         echo "src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git" >> ./feeds.conf.default
+        rm -rf tmp && ./scripts/feeds install -f -p helloworld shadowsocksr-libev
+        
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
